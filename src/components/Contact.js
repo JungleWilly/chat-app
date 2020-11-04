@@ -3,6 +3,7 @@ import './Contact.css'
 export function Contact() {
     const avatarUrl= 'https://randomuser.me/api/portraits/men/45.jpg';
     const name = 'Micheal Chavez';
+    const online = true;
     return (
         <div className='Contact'>
             <img alt='profile picture' className='avatar' srcSet={avatarUrl}/>
