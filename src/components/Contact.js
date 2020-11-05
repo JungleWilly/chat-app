@@ -1,20 +1,24 @@
-import './Contact.css'
+import React from "react";
+import PropTypes from "prop-types";
+import "./Contact.css";
 
-export function Contact() {
-    const avatarUrl= 'https://randomuser.me/api/portraits/men/45.jpg';
-    const name = 'Micheal Chavez';
-    const online = true;
+export function Contact({ name, online, avatarUrl }) {
     return (
-        <div className='Contact'>
-            <img alt='profile picture' className='avatar' srcSet={avatarUrl}/>
+        <div className="Contact">
+            <img alt="profile" className="avatar" srcSet={avatarUrl} />
             <div>
-                <h4 className='name'>{name}</h4>
-                <div className='status'>
-                    <span className='status-online'/>
-                    <p className='status-text'>online</p>
+                <h4 className="name">{name}</h4>
+                <div className="status">
+                    <span className={online ? "status-online" : "status-offline"} />
+                    <p className="status-text">{online ? "Online" : "Offline"}</p>
                 </div>
-
             </div>
         </div>
     );
+}
+
+Contact.prototype = {
+    name: PropTypes.string.isRequired,
+    avatarUrl: PropTypes.string.isRequired,
+    online: PropTypes.bool.isRequired
 };
